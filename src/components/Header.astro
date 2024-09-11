@@ -1,0 +1,43 @@
+---
+interface HeaderProps {
+  LightBlack: string;
+  DrakBlack: string;
+}
+const {LightBlack = '#191919', DrakBlack = '#000'} = Astro.props as HeaderProps;
+
+import {Image} from 'astro:assets';
+import Logo from '../assets/shared/desktop/logo.svg';
+import MenuIcon from '../assets/shared/tablet/icon-hamburger.svg';
+import CartMenu from '../assets/shared/desktop/icon-cart.svg';
+import MobileMenu from './MobileMenu.astro';
+import CartMenuBar from './CartMenu.astro';
+---
+
+<header
+  class='relative flex h-[5.56rem] w-full max-w-[90rem] items-center justify-between px-6 sm:pl-[2.44rem] sm:pr-10 xl:h-24 xl:px-[10.31rem]'
+  style={{backgroundColor: LightBlack}}
+>
+  <!-- Mobile Menu BTN -->
+  <button type='button' id='menuOpen' class='xl:hidden'>
+    <Image src={MenuIcon} alt='Open Menu Bar.' />
+  </button>
+  <!-- The Logo -->
+  <a href='/' class=''>
+    <Image src={Logo} alt='Audiophile Logo.' />
+  </a>
+  <!-- Mobile Menu Window -->
+  <MobileMenu />
+  <!-- Cart Menu Btn -->
+  <button type='button' id='menuOpen'>
+    <Image src={CartMenu} alt='Open Cart Menu.' />
+  </button>
+  <!-- Cart Menu Window -->
+  <CartMenuBar />
+</header>
+
+<script is:inline>
+  const MenuOpen = document.getElementById('menuOpen');
+  MenuOpen.addEventListener('click', () => {
+    MenuOpen.classList.toggle('hidden');
+  });
+</script>

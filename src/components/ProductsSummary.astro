@@ -1,0 +1,28 @@
+---
+import {Image} from 'astro:assets';
+import Earbuds from '../assets/shared/desktop/';
+import Headphones from '../assets/shared/desktop/image-category-thumbnail-headphones.png';
+import Speakers from '../assets/shared/desktop/image-category-thumbnail-speakers.png';
+---
+
+<div
+  class='flex flex-col items-center justify-center gap-[4.25rem] sm:flex-row sm:justify-between sm:gap-[0.62rem] xl:gap-[1.88rem]'
+>
+  <div
+    class='relative h-[10.3125rem] w-full max-w-[20.4375rem] rounded-lg bg-[#F1F1F1] sm:h-[10.3125rem] sm:max-w-[13.9375rem] xl:h-[12.75rem] xl:max-w-[21.875rem]'
+  >
+    <Image
+      src={Headphones}
+      alt='Headphones Category.'
+      class:list={[
+        'absolute top-0 flex max-w-[4.99475rem] items-center justify-center',
+      ]}
+    />
+    <div
+      class='flex flex-col items-center justify-center gap-[1.06rem] text-center'
+    >
+      <h2 class=''></h2>
+      <a href='/src/pages/' target='_blank' rel='noopener noreferrer'>SHOP</a>
+    </div>
+  </div>
+</div>

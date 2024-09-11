@@ -1,13 +1,13 @@
 ---
+import Header from '@/components/Header.astro';
+
 interface Props {
   title: string;
   description?: string;
 }
 
-const {
-  title = 'Frontend Mentor | Audiophile e-commerce website',
-  description = 'Frontend Mentor | Audiophile e-commerce website',
-} = Astro.props;
+const {title, description = 'Frontend Mentor | Audiophile e-commerce website'} =
+  Astro.props;
 ---
 
 <!doctype html>
@@ -16,7 +16,11 @@ const {
     <meta charset='UTF-8' />
     <meta name='description' content={description} />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link
+      rel='icon'
+      type='image/svg+xml'
+      href='/src/assets/favicon-32x32.png'
+    />
     <meta name='generator' content={Astro.generator} />
     <!-- Google Fonts 'Manrope' -->
     <link rel='preconnect' href='https://fonts.googleapis.com' />
@@ -27,7 +31,8 @@ const {
     />
     <title>{title}</title>
   </head>
-  <body>
+  <body class='min-h-screen'>
+    <Header />
     <slot />
   </body>
 </html>
