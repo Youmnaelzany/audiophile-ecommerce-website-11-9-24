@@ -1,9 +1,39 @@
 ---
+interface HeaderProps {
+  LightBlack: string;
+  DrakBlack: string;
+}
+const {LightBlack = '#191919', DrakBlack = '#000'} = Astro.props as HeaderProps;
+
 import Layout from '../layouts/Layout.astro';
 import '@/styles/globals.css';
-import json from '../data/data.json';
+import Header from '@/components/Header.astro';
 import Main from '@/components/Main.astro';
-import H1 from '@/components/H1.astro';
+import {Image} from 'astro:assets';
+import Logo from '../assets/shared/desktop/logo.svg';
 ---
 
 <Layout title='Audiophile e-commerce website.' />
+<Header style={{backgroundColor: LightBlack}} />
+<section class='heroWrapper'></section>
+
+<Main />
+
+<style is:inline>
+  .heroWrapper {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+
+    background-image: url('/src/assets/home/desktop/image-hero.jpg');
+
+    @media (max-width: 767px) {
+      background-image: url('/src/assets/home/tablet/image-header.jpg');
+    }
+
+    @media (max-width: 374px) {
+      background-image: url('/src/assets/home/mobile/image-header.jpg');
+    }
+  }
+</style>
