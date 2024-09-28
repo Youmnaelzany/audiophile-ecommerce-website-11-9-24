@@ -1,13 +1,12 @@
 ---
-import Header from '@/components/Header.astro';
+import Header from '@/components/Header';
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const {title, description = 'Frontend Mentor | Audiophile e-commerce website'} =
-  Astro.props;
+const {title, description = 'Audiophile e-commerce website'} = Astro.props;
 ---
 
 <!doctype html>
@@ -15,14 +14,14 @@ const {title, description = 'Frontend Mentor | Audiophile e-commerce website'} =
   <head>
     <meta charset='UTF-8' />
     <meta name='description' content={description} />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='viewport' content='width=device-width' />
     <link
       rel='icon'
       type='image/svg+xml'
-      href='/src/assets/favicon-32x32.png'
+      href='/src/assets/shared/favicon-32x32.png'
     />
     <meta name='generator' content={Astro.generator} />
-    <!-- Google Fonts 'Manrope' -->
+    <!-- Google Fonts "Manrope" -->
     <link rel='preconnect' href='https://fonts.googleapis.com' />
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link
@@ -31,7 +30,8 @@ const {title, description = 'Frontend Mentor | Audiophile e-commerce website'} =
     />
     <title>{title}</title>
   </head>
-  <body class='min-h-screen'>
+  <body class='max-w-screen'>
+    <Header />
     <slot />
   </body>
 </html>
@@ -45,25 +45,9 @@ const {title, description = 'Frontend Mentor | Audiophile e-commerce website'} =
     font: inherit;
   }
 
-  html {
-    hanging-punctuation: first last;
-  }
-
   body {
     min-height: 100svh;
-  }
-
-  img,
-  picture,
-  svg,
-  video {
-    font-style: italic;
-    background-repeat: no-repeat;
-    background-size: cover;
-    shape-margin: 1rem;
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
+    font-family: 'Manrope', sans-serif;
   }
 
   @media (prefers-reduced-motion: no-preference) {
